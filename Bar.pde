@@ -1,21 +1,18 @@
 class Bar {
   private PVector location, velocity, acceleration;
   private boolean horizontal;
-  private int topSpeed, strokeWeight;
+  private int topSpeed, strokeWeight = height/100;
   
   public Bar() {
-    this.horizontal = random(1) > .5;
-    this.location = new PVector(-100, -100);
-    this.velocity = new PVector(0, 0);
-    this.acceleration = PVector.random2D();
+    this.horizontal = true;//random(1) > .5;
+    this.location = new PVector(0, 0);
+    this.velocity = new PVector(1, 1);
     this.topSpeed = 5;
-    this.strokeWeight = (int)random(50);
   }
   
   public void draw(){
     if (!gameOver) {
       strokeWeight(strokeWeight);
-      velocity.add(acceleration);
       velocity.limit(topSpeed);
       
       location.add(velocity);

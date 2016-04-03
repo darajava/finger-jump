@@ -1,13 +1,13 @@
 ArrayList<Bar> bars = new ArrayList<Bar>();
-int score = 1;
+int score = 1, ticks = 1;
 boolean gameOver = false;
+Grid grid;
 
 void setup() {
   size(320, 480);
   frameRate(60);
   strokeWeight(height/100);
-  bars.add(new Bar());
-  
+  grid = new Grid();
 }
 
 void draw() {
@@ -20,23 +20,23 @@ void draw() {
   if (!gameOver){
     if (mousePressed) {
       score++;
-      fill(200,200,200);
+      fill(255,255,255);
     } else {
       score -= 3;
       fill(200,0,0);
     }
+    
   }
   textAlign(CENTER, CENTER);
-  textSize(width/10);
+  textSize(width/5);
   text(score, width/2, 50);
 
-  if (score % 100 == 0) {
-    bars.add(new Bar());
+  ticks++;
+  if (ticks % 100 == 0) {
+    grid.addBar();
   }
-
-  for (int i = 0; i < bars.size(); i++){
-    bars.get(i).draw();
-  }
+  
+  grid.draw();
   
   if (gameOver) {
     text(score, width/2, 50);
