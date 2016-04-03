@@ -7,7 +7,12 @@ class Bar {
     this.horizontal = horizontal;
     this.location = new PVector(0, 0);
     this.velocity = new PVector(1, 1);
+    this.velocity.add(PVector.random2D());
     this.topSpeed = 5;
+  }
+  
+  public void incStroke(){
+    this.strokeWeight+=2;
   }
   
   public void draw(){

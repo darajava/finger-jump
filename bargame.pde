@@ -26,19 +26,15 @@ void draw() {
       fill(200,0,0);
     }
     
-  }
-  textAlign(CENTER, CENTER);
-  textSize(width/5);
-  text(score, width/2, 50);
-
-  ticks++;
-  if (ticks % 100 == 0) {
-    grid.addBar();
-  }
+    textAlign(CENTER, CENTER);
+    textSize(score/6);
+    text(score, width/2, height/2);
   
+
+  }
   grid.draw();
   
   if (gameOver) {
-    text(score, width/2, 50);
+    text(score, width/2, height/2);
   }
 }
