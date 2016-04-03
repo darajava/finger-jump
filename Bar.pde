@@ -3,8 +3,8 @@ class Bar {
   private boolean horizontal;
   private int topSpeed, strokeWeight = height/100;
   
-  public Bar() {
-    this.horizontal = true;//random(1) > .5;
+  public Bar(boolean horizontal) {
+    this.horizontal = horizontal;
     this.location = new PVector(0, 0);
     this.velocity = new PVector(1, 1);
     this.topSpeed = 5;
