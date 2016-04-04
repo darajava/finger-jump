@@ -15,6 +15,15 @@ class Bar {
     this.strokeWeight+=2;
   }
   
+  public void decStroke(){
+    this.strokeWeight-=2;
+  }
+  
+  public void changeDirection(){
+    velocity.x *= -1;
+    velocity.y *= -1;
+  }
+  
   public void draw(){
     if (!gameOver) {
       strokeWeight(strokeWeight);
@@ -25,8 +34,11 @@ class Bar {
     if (horizontal) {
       line(0, location.y, width, location.y);
       
-      if (location.y > height * 1.2) {
+      if (location.y > height) {
         location.y = 0;
+      }
+      if (location.y < 0) {
+        location.y = height;
       }
       if (mousePressed) {
         if (mouseY > location.y - strokeWeight / 2 && mouseY < location.y + strokeWeight / 2) {
@@ -36,8 +48,11 @@ class Bar {
     } else {
       line(location.x, 0, location.x, height);
       
-      if (location.x > width * 1.2) {
+      if (location.x > width) {
         location.x = 0;
+      }
+      if (location.x < 0) {
+        location.x = width;
       }
       if (mousePressed) {
         if (mouseX > location.x - strokeWeight / 2 && mouseX < location.x + strokeWeight / 2) {
